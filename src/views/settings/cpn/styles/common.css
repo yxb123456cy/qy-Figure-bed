@@ -1,0 +1,154 @@
+/* 基础布局样式 */
+.settings-panel {
+  padding: 20px;
+  height: 100%;
+}
+
+/* 面板内容间距 */
+.panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 输入框和选择器样式统一 */
+:deep(.el-input__wrapper),
+:deep(.el-select__wrapper) {
+  box-shadow: none;
+  border: 1px solid var(--el-border-color);
+  transition: all 0.3s;
+  
+  &:hover {
+    border-color: var(--el-border-color-hover);
+  }
+  
+  &.is-focus {
+    border-color: var(--el-color-primary);
+    box-shadow: 0 0 0 1px var(--el-color-primary-light-8);
+  }
+}
+
+/* 选择器选项样式 */
+.select-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.option-label {
+  flex: 1;
+  font-weight: 500;
+}
+
+.option-description {
+  font-size: 12px;
+  color: var(--el-text-color-secondary);
+}
+
+/* 滑块组件通用样式 */
+.quality-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.quality-value {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--el-text-color-primary);
+}
+
+:deep(.el-slider) {
+  margin: 12px 0;
+}
+
+/* 提示文本样式 */
+.form-tip {
+  font-size: 12px;
+  color: var(--el-text-color-secondary);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 768px) {
+  .settings-panel {
+    padding: 12px;
+  }
+
+  /* 面板间距调整 */
+  .panel-content {
+    gap: 16px;
+  }
+  
+  /* 输入框尺寸调整 */
+  :deep(.el-input__wrapper),
+  :deep(.el-select__wrapper) {
+    padding: 0 12px;
+  }
+  
+  :deep(.el-input__inner) {
+    height: 36px;
+    font-size: 14px;
+  }
+  
+  /* 滑块组件调整 */
+  .quality-value {
+    font-size: 16px;
+  }
+  
+  :deep(.el-slider__input) {
+    display: none;
+  }
+  
+  /* 隐藏选项描述文本 */
+  .option-description {
+    display: none;
+  }
+}
+
+/* 小屏幕适配 */
+@media screen and (max-width: 480px) {
+  .settings-panel {
+    padding: 8px;
+  }
+  
+  /* 进一步缩小间距 */
+  .panel-content {
+    gap: 12px;
+  }
+  
+  /* 调整输入框样式 */
+  :deep(.el-input__wrapper),
+  :deep(.el-select__wrapper) {
+    padding: 0 10px;
+  }
+  
+  :deep(.el-input__inner) {
+    height: 34px;
+    font-size: 13px;
+  }
+  
+  /* 优化下拉选项样式 */
+  :deep(.el-select-dropdown__item) {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+}
+
+
+.size-control, .path-input {
+  width: 100%;
+}
+
+/* Element Plus 表单组件样式覆盖 */
+:deep(.el-form-item) {
+  margin-bottom: 0;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
