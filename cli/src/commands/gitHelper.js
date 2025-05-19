@@ -44,6 +44,57 @@ class GitHelper {
     }
   }
 
+  // 查看分支
+  static listBranches(remote = 'origin') {
+    try {
+      const currentBranch = execSync('git branch --show-current').toString().trim()
+      console.log(`\n🌐 远程分支列表 (${remote}):`)
+  
+      const output = execSync(`git ls-remote --heads ${remote}`).toString()
+      const remoteBranches = output
+        .split('\n')
+        .filter(line => line)
+        .map(line => {
+          const [hash, ref] = line.split('\t')
+          const branchName = ref.match(/refs\/heads\/(.+)/)?.[1]
+          return branchName ? { name: branchName, hash } : null
+        })
+        .filter(Boolean)
+  
+      // 获取本地分支信息
+      const localBranches = execSync('git branch -l').toString()
+        .split('\n')
+        .map(line => line.replace('*', '').trim())
+        .filter(Boolean)
+  
+      // 检测当前分支是否存在对应的远程分支
+      const hasRemoteBranch = remoteBranches.some(b => b.name === currentBranch)
+  
+      console.log('\n📊 分支关系分析:')
+      console.log('\n')
+    
+      remoteBranches.forEach(branch => {
+        const isCurrent = branch.name === currentBranch
+        const isLocal = localBranches.includes(branch.name)
+        
+        const status = isCurrent ? '🟢' : (isLocal ? '🔵' : '⚪')
+        const relation = isCurrent ? ' (当前分支)' : 
+                        (isLocal ? ' (本地存在)' : ' (仅远程)')
+        
+        console.log(`${status} ${branch.name}${relation}`)
+        console.log(`   Hash: ${branch.hash.slice(0, 7)}`)
+      })
+  
+      if (!hasRemoteBranch) {
+        console.log(`\n⚠️ 当前分支 ${currentBranch} 尚未推送到 ${remote} 远程仓库`)
+      }
+      
+      return remoteBranches
+    } catch (error) {
+      handleError(error)
+    }
+  }
+
   static pushRemote(remote = 'origin') {
     try {
       const currentBranch = execSync('git branch --show-current').toString().trim()
@@ -121,5 +172,13 @@ export const gitHelperCommand = () => {
     .option('-r, --remote <name>', '远程仓库名称', 'origin')
     .action((options) => {
       GitHelper.pushRemote(options.remote)
+    })
+
+    program
+    .command('list-remote')
+    .description('查看所有远程分支')
+    .option('-r, --remote <name>', '远程仓库名称', 'origin')
+    .action((options) => {
+      GitHelper.listBranches(options.remote)
     })
 }
