@@ -41,7 +41,7 @@
       </el-form-item>
 
       <!-- 图片格式设置 -->
-      <el-form-item label="图片格式" class="image-formats-item">
+      <el-form-item label="格式限制" class="image-formats-item">
         <el-checkbox-group 
           v-model="settings.allowedTypes" 
           class="image-type-group"
