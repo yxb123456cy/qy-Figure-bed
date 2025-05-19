@@ -5,7 +5,7 @@ export const fullScreenViews = [
     {
         path: '/',
         name: 'home',
-        component: () => import('../views/home/Home.vue')
+        component: () => import('../views/home/index.vue')
     }
 ]
 
@@ -18,17 +18,17 @@ export const layoutViews = [
             {
                 path: '/workbench/upload',
                 name: 'upload',
-                component: () => import('../views/upload/Upload.vue')
+                component: () => import('../views/upload/index.vue')
             },
             {
                 path: '/workbench/gallery',
                 name: 'gallery',
-                component: () => import('../views/gallery/Gallery.vue')
+                component: () => import('../views/gallery/index.vue')
             },
             {
                 path: '/workbench/settings',
                 name:'settings',
-                component: () => import('../views/settings/Settings.vue')
+                component: () => import('../views/settings/index.vue')
             }
         ]
     }
