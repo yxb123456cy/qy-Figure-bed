@@ -2,7 +2,7 @@
     <header class="header">
       <div class="header__logo">
         <div class="header__logo-icon">
-          <i class="fas fa-images"></i>
+          <img src="/favicon.svg" />
         </div>
         <span class="header__logo-text">轻叶图床</span>
       </div>
