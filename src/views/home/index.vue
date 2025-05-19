@@ -1,48 +1,73 @@
 <template>
-  <div class="home-container">
-    <section class="welcome-section">
-      <h1>欢迎使用图片上传管理系统</h1>
-      <p>
-        本系统提供了便捷的图片上传和管理功能，支持多种图片格式和存储服务。
-      </p>
-      <p>
-        请通过左侧菜单进行配置和管理。
-      </p>
-    </section>
+  <div class="home">
+    <!-- S 导航栏 -->
+    <Header />
+    <!-- E 导航栏 -->
 
-    <section class="features-section">
-      <h2>主要功能</h2>
-      <ul>
-        <li>支持多种图片格式（JPEG、PNG、GIF）</li>
-        <li>图片压缩和转换</li> 
-        <li>自定义上传目录和命名规则</li>
-        <li>支持多种存储服务（本地、阿里云OSS、腾讯云COS）</li>
-        <li>批量上传和管理图片</li>
-        <li>图片预览和下载</li>
-      </ul>
-    </section>
+    <!-- S Hero 区域 -->
+     <Hero />
+    <!-- E Hero 区域 -->
 
-    <section class="getting-started-section"> 
-      <h2>开始使用</h2>
-      <p>
-        请按照以下步骤开始使用系统：
-      </p>
-      <ol>
-        <li>进入 <strong>设置</strong> 菜单</li>
-        <li>配置上传目录和存储服务</li>
-        <li>上传图片并管理</li>
-      </ol> 
-    </section>
+    <!-- S 功能特点区域 -->
+    <Features />
+    <!-- E 功能特点区域 --> 
 
-    <section class="support-section">
-      <h2>技术支持</h2>
-      <p>
-        如果遇到任何问题，请联系我们的技术支持团队。
-      </p>
-      <p>
+    <!-- S 应用场景区域 -->
+    <Scenarios />
+    <!-- E 应用场景区域 -->
 
-        <strong>邮箱：</strong> EMAIL        <strong>邮箱：</strong> support@example.com
-      </p>
-    </section>
+    <!-- S 高级功能区域 -->
+    <AdvancedFeatures />
+    <!-- E 高级功能区域 -->
+
+    <!-- S 相册功能展示 -->
+    <Album />
+    <!-- E 相册功能展示 -->
+
+    <!-- S 社交互动功能 -->
+    <Social />
+    <!-- E 社交互动功能 -->
+
+    <!-- S 行动召唤 -->
+     <Cta />
+    <!-- E 行动召唤 -->
+
+    <!-- S 页脚 -->
+    <Footer />
+    <!-- E 页脚 -->
   </div>
 </template>
+
+<script lang="ts" setup>
+import Header from './cnps/header.vue'
+import Hero from './cnps/hero.vue'
+import Features from './cnps/features.vue'
+import Scenarios from "./cnps/scenarios.vue"
+import AdvancedFeatures from "./cnps/advanced-features.vue"
+import Album from "./cnps/album.vue"
+import Social from "./cnps/social.vue"
+import Cta from "./cnps/cta.vue"
+import Footer from "./cnps/footer.vue"
+</script>
+
+<style scoped>
+.home {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f7ff 0%, #f5f3ff 50%, #fdf2f8 100%);
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a5b4fc;
+}
+</style>
