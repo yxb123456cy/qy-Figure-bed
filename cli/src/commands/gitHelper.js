@@ -47,6 +47,22 @@ class GitHelper {
   static pushRemote(remote = 'origin') {
     try {
       const currentBranch = execSync('git branch --show-current').toString().trim()
+
+        // 安全检查：禁止直接推送主分支
+        if (['main', 'master', 'release'].includes(currentBranch)) {
+            console.error('🚫 禁止直接推送主分支，请使用合并请求（MR）流程')
+            process.exit(1)
+        }
+
+        // 安全检查：分支命名规范
+        // const branchPattern = /^(feature|bugfix|hotfix)\/[a-z0-9-_]+/
+        // if (!branchPattern.test(currentBranch)) {
+        //     console.error('⚠️ 分支命名不规范，推荐格式：')
+        //     console.error('  feature/新功能名称')
+        //     console.error('  bugfix/问题描述')
+        //     console.error('  hotfix/紧急修复描述')
+        //     process.exit(1)
+        // }
       
       // 检查远程分支是否存在
       if (this.remoteBranchExists(remote, currentBranch)) {
