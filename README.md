@@ -14,6 +14,8 @@
 
 选择轻叶图床，让图片存储与预览变得前所未有的简单。它将成为您在数字世界中管理和分享图片资源的得力助手，开启便捷高效的云预览新时代。
 
+[🚀体验地址](https://qy-figure-bed.pages.dev/)
+
 # Thanks to the Contributors for Their Efforts
 
 <table>
