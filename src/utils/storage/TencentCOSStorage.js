@@ -18,7 +18,7 @@ export class TencentCOSStorage extends BaseStorage {
     const cos = new COS({
       SecretId: config.secretId,
       SecretKey: config.secretKey,
-      Timeout: 1500, //设置超时时间;1.5s
+      Timeout: 5500, //设置超时时间;5.5s
       Domain: `${config.bucket}.cos.${config.region}.myqcloud.com`,
     })
     // 腾讯云cos客户端;
