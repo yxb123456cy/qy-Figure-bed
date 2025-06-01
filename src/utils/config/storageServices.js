@@ -75,6 +75,44 @@ export const STORAGE_SERVICES = {
       },
     ],
   },
+  // github仓储;
+  github:{
+    type: 'github',
+    label: 'github仓储',
+    icon: 'Cloudy',
+    description: 'github仓储',
+    fields: [
+      {
+        key: 'repoOwner',
+        label: 'RepoOwner',
+        icon: 'Location',
+        required: true,
+        placeholder: 'github账户个人账户名',//
+      },
+      {
+        key: 'repoName',
+        label: 'RepoName',
+        icon: 'Box',
+        required: true,
+        placeholder: '一个github仓库名称',
+      },
+      {
+        key: 'bucket',
+        label: 'Bucket',
+        icon: 'Key',
+        required: true,
+        placeholder: '上传文件所处路径',
+      },
+      {
+        key: 'githubToken',
+        label: 'GitHubToken',
+        icon: 'Lock',
+        type: 'password',
+        required: true,
+        placeholder: 'github个人Token',
+      },
+    ],
+  }
 }
 
 // 获取存储服务的必填字段
