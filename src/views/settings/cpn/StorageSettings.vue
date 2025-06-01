@@ -2,7 +2,7 @@
   <div class="settings-panel">
     <div class="panel-content">
       <!-- 存储类型选择 -->
-      <el-tag>请在阿里云OSS管理控制台创建跨域规则，不然测试通过不了</el-tag>
+      <el-tag>请在阿里云OSS管理控制台/腾讯云COS管理控制台创建跨域规则，不然测试通过不了</el-tag>
       <el-form-item label="存储类型" class="storage-type-item" label-width="100px">
         <div class="type-and-test">
           <el-select v-model="storageSettings.storageType" class="storage-type-select">

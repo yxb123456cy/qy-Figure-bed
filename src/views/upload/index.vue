@@ -238,7 +238,11 @@
     }
     reader.readAsDataURL(file.raw)
   }
-  
+
+  /**
+   * 上传文件逻辑;
+   * @returns {Promise<void>}
+   */
   const uploadFiles = async () => {
     if (!FileManager.isStorageConfigured(storageType.value, settings.value)) {
       ElMessage.error('请先完成存储配置')
