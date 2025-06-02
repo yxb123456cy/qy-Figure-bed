@@ -1,3 +1,11 @@
+/* S 单选按钮选中状态 */
+.region .el-radio-button__original-radio:checked + .el-radio-button__inner {
+    color: var(--el-color-primary);
+    background-color: var(--el-color-primary-light-9);
+    border-color: var(--el-color-primary);
+}
+/* E 单选按钮选中状态 */
+
 /* S Dialog 样式行为 */
 .dialog-fade-enter-active .el-dialog {
     animation: dialog-open 0.2s cubic-bezier(0.33, 0.89, 0.25, 1.02);
