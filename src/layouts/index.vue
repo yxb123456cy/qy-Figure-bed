@@ -35,7 +35,7 @@ import Main from './cnps/main/index.vue'
 .layouts-content {
   flex: 1;
   padding: 24px;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   width: 100%;
   margin: 0 auto;
 }
