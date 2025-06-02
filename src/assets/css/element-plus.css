@@ -1,3 +1,29 @@
+/* S 质感提升 */
+:root {
+    /* 色彩系统 */
+    --el-color-primary: #409EFF;
+    --el-color-primary-light-9: rgba(64, 158, 255, 0.1);
+    
+    /* 中性色 */
+    --el-text-color-primary: rgba(0, 0, 0, 0.85);
+    --el-text-color-regular: rgba(0, 0, 0, 0.65);
+    
+    /* 边框系统 */
+    --el-border-width: 1px;
+    --el-border-color-light: #EBEEF5;
+    --el-border-color-extra-light: #F2F6FC;
+    
+    /* 圆角系统 */
+    --el-border-radius-base: 6px;
+    --el-border-radius-small: 4px;
+    --el-border-radius-round: 20px;
+    
+    /* 投影系统 */
+    --el-box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
+    --el-box-shadow-dark: 0 2px 12px 0 rgba(0, 0, 0, 0.12);
+}
+/* E 质感提升 */
+
 /* S 单选按钮选中状态 */
 .region .el-radio-button__original-radio:checked + .el-radio-button__inner {
     color: var(--el-color-primary);
