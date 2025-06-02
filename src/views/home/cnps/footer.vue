@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>© 2023 轻叶图床. 保留所有权利.</p>
+          <p>© 2025 轻叶图床. 保留所有权利.</p>
         </div>
       </div>
     </footer>

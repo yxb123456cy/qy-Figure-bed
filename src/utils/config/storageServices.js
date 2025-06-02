@@ -1,4 +1,5 @@
 // 存储服务配置
+const storage=['oss','kodo','cos','github','bos','minio']
 export const STORAGE_SERVICES = {
   oss: {
     type: 'oss',
@@ -72,6 +73,43 @@ export const STORAGE_SERVICES = {
         type: 'password',
         required: true,
         placeholder: 'SecretKey',
+      },
+    ],
+  },
+  //华为云OBS存储
+  obs:{
+    type: 'obs',
+    label: '华为云OBS',
+    icon: 'Cloudy',
+    description: '华为云OBS对象存储服务',
+    fields: [
+      {
+        key: 'accessKey',
+        label: 'AccessKey',
+        icon: 'Key',
+        required: true,
+        placeholder: 'AccessKey ID',
+      },
+      {
+        key: 'secretKey',
+        label: 'SecretKey',
+        icon: 'Lock',
+        required: true,
+        placeholder: 'AccessKey Secret',
+      },
+      {
+        key: 'server',
+        label: 'Server',
+        icon: 'Location',
+        required: true,
+        placeholder: 'OBS服务的对应Server 例:https://obs.ap-southeast-1.myhuaweicloud.com',
+      },
+      {
+        key: 'bucket',
+        label: 'Bucket',
+        icon: 'Box',
+        required: true,
+        placeholder: '存储桶名称',
       },
     ],
   },

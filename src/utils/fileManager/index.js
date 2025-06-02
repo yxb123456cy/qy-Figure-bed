@@ -13,6 +13,7 @@ import ImageCompressor from '../imageCompressor'
 import { ALiYunOSSStorage } from '../storage/ALiYunOSSStorage.js'
 import { TencentCOSStorage } from '../storage/TencentCOSStorage.js'
 import { GitHubStorage } from '../storage/GitHubStorage.js'
+import { HuaweiOBSStorage } from '../storage/HuaweiOBSStorage.js'
 
 /**
  * 暂时先只实现阿里云oss的;
@@ -23,6 +24,7 @@ const STORAGE_CLASSES = {
   oss: ALiYunOSSStorage,
   cos: TencentCOSStorage,
   github: GitHubStorage,
+  obs: HuaweiOBSStorage,
 }
 
 /**
