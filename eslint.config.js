@@ -18,6 +18,12 @@ export default [
     files: ['**/*.vue'],
     rules: {
       'vue/multi-word-component-names': 'off', // 确保覆盖 Vue 插件的默认规则
+      languageOptions: {
+        globals: {
+          ElMessage: 'readonly', // 声明 ElMessage 为只读全局变量
+          ElMessageBox: 'readonly' // 声明 ElMessageBox 为只读全局变量
+        }
+      }
     },
   },
   {
