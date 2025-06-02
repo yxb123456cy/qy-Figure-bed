@@ -24,10 +24,14 @@ export default [
     files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
     languageOptions: {
       globals: {
+        ...globals.node, // Node.js 全局变量声明
         module: 'writable',
         exports: 'writable',
         require: 'readonly',
       },
+    },
+    rules: {
+      'no-unused-vars': 'off' // 允许未使用的变量（JavaScript 文件规则）
     },
   },
 ]
