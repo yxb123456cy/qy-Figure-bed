@@ -1,5 +1,3 @@
-import { createFilter } from 'vite'
-
 // 构建信息：在构建完成后生成报告
 export const buildInfoPlugin = () => ({
   name: 'build-info',

@@ -106,15 +106,24 @@ const navItems = [
 }
 
 .nav-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  text-decoration: none;
-  color: #2c3e50;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
+   display: flex;
+   align-items: center;
+   gap: 6px;
+   padding: 8px 16px;
+   text-decoration: none;
+   color: #2c3e50;
+   border-radius: 6px;
+   transition: all 0.2s ease;
+ }
+
+ .nav-item.router-link-active {
+   color: #409eff;
+   background-color: #ecf5ff;
+ }
+
+ .nav-item.router-link-active:hover {
+   background-color: #d9ecff;
+ }
 
 .nav-item:hover {
   background-color: #f5f5f5;
