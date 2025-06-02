@@ -13,7 +13,7 @@
       @delete="deleteImage"
       @clear="clearImageList"
       @remove="removeFromList"
-      @copy="copyImageUrl"
+      @copy="handleCopy"
     />
   </div>
 </template>
@@ -23,6 +23,7 @@ import { ref, computed } from 'vue'
 import { FileManager } from '../../utils/fileManager/index.js'
 import { ImageCompressor } from '../../utils/imageCompressor/index.js'
 import { ElMessage } from "element-plus";
+import { ImageHelper } from '../../utils/imageHelper/index.js'
 import UploadPanel from './cnps/UploadPanel.vue'
 import PreviewPanel from './cnps/PreviewPanel.vue'
 
@@ -92,17 +93,26 @@ const uploadFiles = async () => {
   }
 }
 
-const copyImageUrl = ({ image, format }) => {
-  console.log(`复制${format}格式: ${image.uploadedUrl}`)
+const handleCopy = ({ image, format }) => {
+  ImageHelper.copyImageUrl(image.uploadedUrl, image.file.name, format)
 }
 
 const deleteImage = async (image) => {
-  console.log('删除图片', image)
-  imageList.value = imageList.value.filter(item => item !== image)
+  const storage = FileManager.createStorage(storageType.value, settings.value)
+  await ImageHelper.deleteImage(
+    storage, 
+    image,
+    () => {
+      imageList.value = imageList.value.filter(item => item !== image)
+    }
+  )
 }
 
+// 使用ImageHelper处理清空
 const clearImageList = () => {
-  imageList.value = []
+  ImageHelper.clearImages(() => {
+    imageList.value = []
+  })
 }
 
 const removeFromList = (image) => {
