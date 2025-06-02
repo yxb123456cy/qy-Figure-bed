@@ -5,6 +5,7 @@ import ElementPlus, { ElMessage } from 'element-plus'
 import 'element-plus/dist/index.css'
 import './assets/css/reset.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import components from './components'
 
 const app = createApp(App)
 
@@ -14,7 +15,8 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 }
 
 app.use(router)
-app.use(ElementPlus)
+  .use(components)
+  .use(ElementPlus)
 
 // 统一设置 ElMessage 的偏移量
 const messageTypes = ['success', 'warning', 'info', 'error']

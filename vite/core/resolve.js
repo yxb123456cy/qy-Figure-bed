@@ -6,4 +6,4 @@ export default {
     '#ASSETS': fileURLToPath(new URL('./src/assets', import.meta.url)),
     '#LAYOUTS': fileURLToPath(new URL('./src/layouts', import.meta.url))
   }
-};
+}
