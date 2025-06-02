@@ -4,6 +4,7 @@ import router from './router/router.js'
 import ElementPlus, { ElMessage } from 'element-plus'
 import 'element-plus/dist/index.css'
 import './assets/css/reset.css'
+import './assets/css/element-plus.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import components from './components'
 
