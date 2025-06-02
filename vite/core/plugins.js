@@ -1,6 +1,7 @@
-import vue from '@vitejs/plugin-vue';
-import viteCompression from 'vite-plugin-compression';
-import { createHtmlPlugin } from 'vite-plugin-html';
+import vue from '@vitejs/plugin-vue'
+import viteCompression from 'vite-plugin-compression'
+import { createHtmlPlugin } from 'vite-plugin-html'
+import { buildInfoPlugin, hmrGuardPlugin } from '../custom-plugin/index'
 
 export default (env) => [
   vue(),
@@ -9,5 +10,7 @@ export default (env) => [
   // HTML模板注入
   createHtmlPlugin({
     inject: { data: { title: env.VITE_APP_TITLE } }
-  })
-];
+  }),
+  buildInfoPlugin(),
+  hmrGuardPlugin()
+]
