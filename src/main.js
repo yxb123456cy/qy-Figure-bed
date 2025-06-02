@@ -7,30 +7,48 @@ import './assets/css/reset.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import components from './components'
 
-const app = createApp(App)
+function createVueApp() {
+  const app = createApp(App)
 
-// 注册所有图标
-for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-  app.component(key, component)
+  // 注册系统级组件
+  registerIcons(app)
+  
+  // 安装插件
+  installPlugins(app)
+
+  // 应用全局配置
+  configureGlobalSettings()
+
+  return app
 }
 
-app.use(router)
-  .use(components)
-  .use(ElementPlus)
-
-// 统一设置 ElMessage 的偏移量
-const messageTypes = ['success', 'warning', 'info', 'error']
-messageTypes.forEach((type) => {
-  const original = ElMessage[type]
-  ElMessage[type] = (options) => {
-    if (typeof options === 'string') {
-      options = { message: options }
-    }
-    options.offset = 70
-    return original(options)
+function registerIcons(app) {
+  for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
   }
-})
+}
 
-app.mount('#app')
+function installPlugins(app) {
+  app
+    .use(router)
+    .use(components)
+    .use(ElementPlus)
+}
+
+function configureGlobalSettings() {
+  const messageTypes = ['success', 'warning', 'info', 'error']
+  messageTypes.forEach((type) => {
+    const original = ElMessage[type]
+    ElMessage[type] = (options) => {
+      if (typeof options === 'string') {
+        options = { message: options }
+      }
+      options.offset = 70
+      return original(options)
+    }
+  })
+}
+
+const app = createVueApp().mount('#app')
 
 export default app
