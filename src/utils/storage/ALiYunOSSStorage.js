@@ -29,6 +29,7 @@ export class ALiYunOSSStorage extends BaseStorage {
     async upload(file) {
         try {
             const key = this.fileManager.generatePath(file.name)
+
             await this.client.put(key, file, {
                 headers: { 'Content-Type': file.type }
             })
@@ -59,7 +60,6 @@ export class ALiYunOSSStorage extends BaseStorage {
                 prefix,
                 'max-keys': 1000
             })
-
             return result.objects.map(item => ({
                 key: item.name,
                 lastModified: item.lastModified,
