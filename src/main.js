@@ -7,6 +7,7 @@ import './assets/css/reset.css'
 import './assets/css/element-plus.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import components from './components'
+import { registerPlugins } from './plugins'
 
 function createVueApp() {
   const app = createApp(App)
@@ -34,6 +35,8 @@ function installPlugins(app) {
     .use(router)
     .use(components)
     .use(ElementPlus)
+
+    registerPlugins(app)  
 }
 
 function configureGlobalSettings() {
