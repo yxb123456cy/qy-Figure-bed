@@ -7,12 +7,19 @@
         <span class="header__logo-text">轻叶图床</span>
       </div>
       <nav class="header__nav">
-        <button class="!rounded-button header__button" @click="$router.push('/workbench/settings')">开始使用</button>
+        <button class="!rounded-button header__button" @click="handleClick">开始使用</button>
       </nav>
     </header>
 </template>
 
 <script setup>
+import { useCurrentInstance } from '../../../hooks'
+
+const { router } = useCurrentInstance()
+
+const handleClick = () => {
+  router.push('/workbench/settings')
+}
 </script>
 
 <style scoped>

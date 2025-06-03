@@ -6,7 +6,7 @@
           <p class="hero__description">
             以最简单的方式管理图片，团队协作与个人存储的完美结合，随时随地访问您的图片资源
           </p>
-          <button class="!rounded-button hero__button" @click="$router.push('/workbench/settings')">快速体验</button>
+          <button class="!rounded-button hero__button" @click="handleClick">快速体验</button>
         </div>
         <div class="hero__image-container">
           <img
@@ -20,6 +20,13 @@
 </template>
 
 <script setup>
+import { useCurrentInstance } from '../../../hooks'
+
+const { router } = useCurrentInstance()
+
+const handleClick = () => {
+  router.push('/workbench/settings')
+}
 </script>
 
 <style scoped>
