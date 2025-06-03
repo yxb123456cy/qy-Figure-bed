@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ElTooltip, ElProgress } from 'element-plus'
-import { useBackTop } from '../../../hooks/useBackTop'
+import { useBackTop } from '../../../hooks'
 
 const { scrollPercentage, scrollToTop } = useBackTop()
 </script>
